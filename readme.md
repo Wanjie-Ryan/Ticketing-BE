@@ -48,6 +48,11 @@
 
 **1. API Gateway**
 
+- Acts as an entry point to the backend
+- Accepts requests from clients.
+- Authenticate requests
+- Route to MS via gRPC
+
 **2. User Service(Admins only)**
 
 - Manage dashboard/admin users
