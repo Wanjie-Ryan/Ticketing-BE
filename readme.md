@@ -35,3 +35,28 @@
 - Notify users via email
 
 **6. Docker & K8S**
+
+# Structure
+
+- Two types of users here
+
+1. Admin - Registers via dashboard, creates concerts and tickets, and also views insights
+
+- only admins will be stored in the user-service.
+
+2. Customer - No registration, just browses tickets, pays and get receipts
+
+**1. API Gateway**
+
+**2. User Service(Admins only)**
+
+- Manage dashboard/admin users
+- Users Table Fields
+- id, email, password, role (admin, superadmin)
+
+**2.Ticket service**
+- Manage events, concerts, ticket types, inventory
+- Events/Concerts table
+- id, title (name of concert/event), description, location, date_time, status, created_by
+
+- tickets table
