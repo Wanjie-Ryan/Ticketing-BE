@@ -55,8 +55,25 @@
 - id, email, password, role (admin, superadmin)
 
 **2.Ticket service**
+
 - Manage events, concerts, ticket types, inventory
 - Events/Concerts table
-- id, title (name of concert/event), description, location, date_time, status, created_by
+- id, title (name of concert/event), description, location, date_time, status (Active, Inactive, Cancelled), created_by (FK to users.id)
 
 - tickets table
+- id, event_id (FK to events), category, price, total_stock, remaining, sales_start, sales_end
+
+**3. Payment service**
+
+- Handle actual ticket purchases, and store customer transaction info
+- Orders table
+- id, event_id, ticket_id, phone_number, email, quantity, total_amount, payment_ref, status
+- The service stores actual customer info
+
+**4. Notification service**
+
+- Log and displatch notifications after payment success
+- Notifications table
+- id, order_id (FK to orders), channel (email), status, content, recipient, sent_at
+- Triggered by payment service via gRPC or queue.
+- You can make this async with RabbitMQ/NATs
