@@ -1,0 +1,3 @@
+syntax = "proto3";
+option go_package = "github.com/Wanjie-Ryan/Ticketing-BE/API-Gateway/genproto/user";
+package user;

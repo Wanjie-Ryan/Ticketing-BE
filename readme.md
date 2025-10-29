@@ -82,3 +82,32 @@
 - id, order_id (FK to orders), channel (email), status, content, recipient, sent_at
 - Triggered by payment service via gRPC or queue.
 - You can make this async with RabbitMQ/NATs
+
+**gRPC Vs Message Queues**
+
+1. used for synchronous comms - used for asynchornous comms.
+2. Point to point, real-time - Pub/Sub or producer-consumer.
+3. Blocking, in that requests block until response - No blocking
+4. This is immediate, data is needed NOW - Delayed or decoupled messaging.
+
+**Analogy**
+
+- gRPC is like a phone call: you call someone and wait for them to answer and talk back.
+- RabbitMQ/Kafka is like sending a letter: You drop the letter in a mailbox, the recipient can read it whenever they get to it.
+
+**Use Cases**
+
+1. gRPC
+
+- You need an immediate result
+- You're doing data queries or transactions.
+- You want to chain services together.
+
+3. RabbitMQ/Kafka
+
+- You don't need an immediate response
+- You want an event driven system (eg. send a notification after sth happens)
+- You want to decouple services
+- You want resilience (if one service is down, the message still waits)
+
+- With RabbitMQ, even if the notification service is offline, it will receive the message later when it comes back up - gRPC cannot do that.
