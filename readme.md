@@ -83,6 +83,8 @@
 - Triggered by payment service via gRPC or queue.
 - You can make this async with RabbitMQ/NATs
 
+---- **ALL ABOUT THE SERVICES ENDS HERE** ------
+
 **gRPC Vs Message Queues**
 
 1. used for synchronous comms - used for asynchornous comms.
