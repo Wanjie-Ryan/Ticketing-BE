@@ -7,7 +7,7 @@
 
 **1. API Gateway**
 
-- Entry point for all external requests.
+-- Entry point for all external requests.
 - Handles HTTP requests from web.
 - Authenticate requests via JWT.
 - Route requests to internal gRPC services
